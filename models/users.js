@@ -1,5 +1,5 @@
 module.exports = (sequelize, DataTypes) => {
-    const Classes = sequelize.define('Users', {
+    const Users = sequelize.define('Users', {
         schoolId: {
             type: DataTypes.INTEGER,
             allowNull: false,
@@ -8,18 +8,26 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             allowNull: false,
         },
-        description: {
+        classId: {
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        age:{
+            type: DataTypes.INTEGER,
+            allowNull: false,
+        },
+        phone:{
             type: DataTypes.STRING,
             allowNull: false,
         }
     }, {
         tableName: 'Users',
     });
-    Classes.associate = function (models) {
+    Users.associate = function (models) {
       Users.belongsTo(models.Classes, {
         foreignKey: 'classId',
      }),
-        Classes.belongsTo(models.Schools, {
+        Users.belongsTo(models.Schools, {
             foreignKey: 'schoolId',
         })
     }

@@ -14,11 +14,11 @@ module.exports = {
                 schoolId: faker.random.number({'min':1, 'max':10}),
                 age: faker.random.number({'min':15, 'max':24}),
                 phone: faker.phone.phoneNumber(),
-                createAt: date,
-                updateAt: date
+                createdAt: date,
+                updatedAt: date
             })
         }
-        return queryInterface.bulkInsert(('Users', data, {}));
+        return queryInterface.bulkInsert('Users', data, {});
     },
     down: (queryInterface, Sequelize) =>{
         return queryInterface.bulkDelete('Users', null, {})

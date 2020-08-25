@@ -11,7 +11,6 @@ app.get('/', async (req, res) =>{
                 { model: Model.Users, attributes: ['id','name','age','phone']}
             ],
             attributes: ['id','name','totalStudents'],
-            limit: 10,
         })
         res.json(data);
     }

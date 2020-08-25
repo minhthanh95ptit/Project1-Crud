@@ -6,7 +6,7 @@ const app = express();
 app.get('/', async (req, res) =>{
     try{
         const data = await Model.Classes.findAll({
-            include: [Model.Schools],
+            include: [Model.Schools, Model.Users],
             // limit: 1
         })
         res.json(data);

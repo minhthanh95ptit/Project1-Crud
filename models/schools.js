@@ -11,24 +11,16 @@ module.exports = (sequelize, DataTypes) => {
         phone:{
             type: DataTypes.STRING,
             allowNull: true
-        },
-        classId:{
-            type: DataTypes.INTEGER,
-            allowNull: true
-        },
-        userId:{
-            type: DataTypes.INTEGER,
-            allowNull: true
         }
     }, {
         tableName: 'Schools',
     });
     Schools.associate = function (models) {
         Schools.hasMany(models.Classes,{
-            foreignKey: 'classId',
+            foreignKey: 'schoolId',
         }),
         Schools.hasMany(models.Users,{
-            foreignKey: 'userId',
+            foreignKey: 'schoolId',
         })
     };
 

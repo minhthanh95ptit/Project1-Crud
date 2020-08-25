@@ -16,15 +16,19 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.INTEGER,
             allowNull: true
         },
+        userId:{
+            type: DataTypes.INTEGER,
+            allowNull: true
+        }
     }, {
         tableName: 'Schools',
     });
     Schools.associate = function (models) {
         Schools.hasMany(models.Classes,{
-            foreignKey: 'schoolId',
+            foreignKey: 'classId',
         }),
         Schools.hasMany(models.Users,{
-            foreignKey: 'schoolId',
+            foreignKey: 'userId',
         })
     };
 

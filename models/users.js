@@ -25,10 +25,10 @@ module.exports = (sequelize, DataTypes) => {
     });
     Users.associate = function (models) {
       Users.belongsTo(models.Classes, {
-        foreignKey: 'id',
+        foreignKey: 'classId',
      }),
      Users.belongsTo(models.Schools, {
-        foreignKey: 'id',
+        foreignKey: 'schoolId',
      })
     }
     return Users;

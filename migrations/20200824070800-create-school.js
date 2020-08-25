@@ -17,6 +17,9 @@ module.exports = {
       phone: {
         type: Sequelize.STRING
       },
+      classId:{
+        type: Sequelize.INTEGER
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

@@ -12,7 +12,7 @@ module.exports = {
             data.push({
                 name: faker.internet.userName(),
                 schoolId: faker.random.number({'min': 1, 'max':10}),
-                totalStudent: faker.random.number({'min': 20,'max': 30}),
+                totalStudents: faker.random.number({'min': 20,'max': 30}),
                 createdAt: date,
                 updatedAt: date
             })

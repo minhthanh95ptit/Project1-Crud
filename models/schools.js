@@ -11,13 +11,17 @@ module.exports = (sequelize, DataTypes) => {
         phone:{
             type: DataTypes.STRING,
             allowNull: true
-        }
+        },
+        classId:{
+            type: DataTypes.INTEGER,
+            allowNull: true
+        },
     }, {
         tableName: 'Schools',
     });
     Schools.associate = function (models) {
         Schools.hasMany(models.Classes,{
-           
+            foreignKey: 'classId',
         })
     };
 

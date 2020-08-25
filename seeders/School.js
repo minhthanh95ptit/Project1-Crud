@@ -14,6 +14,7 @@ module.exports = {
                 name:faker.internet.userName(),
                 address:faker.address.streetAddress(),
                 phone: faker.phone.phoneNumber(),
+                classId: faker.random.number({'min': 1, 'max':10}),
                 createdAt: date,
                 updatedAt: date
             })

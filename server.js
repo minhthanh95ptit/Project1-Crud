@@ -6,7 +6,7 @@ const app = express();
 app.get('/', async (req, res) =>{
     try{
         const data = await Model.Classes.findAll({
-            include: Model.Schools,
+            include: [Model.Schools],
             limit: 1
         })
         res.json(data);
@@ -31,6 +31,6 @@ app.get('/1', async (req, res) =>{
 
 
 
-app.listen(3002, (req, res) =>{
+app.listen(3000, (req, res) =>{
     console.log("RUNNING...")
 })

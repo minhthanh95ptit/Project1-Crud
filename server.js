@@ -6,9 +6,12 @@ const app = express();
 app.get('/', async (req, res) =>{
     try{
         const data = await Model.Classes.findAll({
-            include: [Model.Schools, Model.Users],
+            include: [
+                { model: Model.Schools, attributes: ['id','name','address','phone']}, 
+                { model: Model.Users, attributes: ['id','name','age','phone']}
+            ],
+            attributes: ['id','name','totalStudents'],
             limit: 10,
-            offset: 5
         })
         res.json(data);
     }
@@ -16,6 +19,8 @@ app.get('/', async (req, res) =>{
         console.log(err);
     }   
 })
+
+
 
 app.get('/1', async (req, res) =>{
     try{

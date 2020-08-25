@@ -25,9 +25,11 @@ app.get('/', async (req, res) =>{
 app.get('/1', async (req, res) =>{
     try{
         const data = await Model.Schools.findAll({
-            include: [Model.Classes, Model.Users],
-            limit: 10,
-            offset: 5
+            include: [
+                { model: Model.Classes, attributes: ['id','name','totalStudents']},
+                { model: Model.Users, attributes: ['id','name','age','phone'] },
+            ],
+            attributes: ['id','name','address','phone']
         })
         res.json(data);
     }
@@ -40,9 +42,11 @@ app.get('/2', async (req, res) =>{
     
     try{
         const data = await Model.Users.findAll({
-            include: [Model.Classes, Model.Schools],
-            limit: 10,
-            offset: 5
+            include: [
+                { model: Model.Classes, attributes: ['id','name','totalStudents'] },
+                { model: Model.Schools, attributes: ['id','name','address','phone']}
+            ],
+            attributes: ['id','name','age','phone']
         })
         res.json(data);
     }

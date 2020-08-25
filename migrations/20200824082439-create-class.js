@@ -17,12 +17,6 @@ module.exports = {
       totalStudents: {
         type: Sequelize.INTEGER
       },
-      createAt: {
-        type: Sequelize.DATE
-      },
-      updateAt: {
-        type: Sequelize.DATE
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

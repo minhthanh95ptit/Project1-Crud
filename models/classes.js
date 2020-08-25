@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   });
     Classes.associate = function (models) {
       Classes.belongsTo(models.Schools, {
-        foreignKey: 'schoolId',
+        foreignKey: 'id',
     });
     };
   return Classes;

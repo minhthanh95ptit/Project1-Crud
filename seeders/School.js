@@ -1,5 +1,6 @@
-// import faker from 'faker';
 'use strict';
+// import faker from 'faker';
+
 const faker = require('faker');
 
 

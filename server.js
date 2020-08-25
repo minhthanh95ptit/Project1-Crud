@@ -7,7 +7,7 @@ app.get('/', async (req, res) =>{
     try{
         const data = await Model.Classes.findAll({
             include: [Model.Schools],
-            limit: 1
+            // limit: 1
         })
         res.json(data);
     }
@@ -19,8 +19,8 @@ app.get('/', async (req, res) =>{
 app.get('/1', async (req, res) =>{
     try{
         const data = await Model.Schools.findAll({
-            include: [Model.Classes],
-            limit: 5
+            include: [Model.Classes, Model.Users],
+            // limit: 5
         })
         res.json(data);
     }
@@ -28,6 +28,23 @@ app.get('/1', async (req, res) =>{
         console.log(err);
     }   
 })
+
+app.get('/2', async (req, res) =>{
+    // console.log(Model.Classes);
+    // console.log(Model.Schools);
+    
+    try{
+        const data = await Model.Users.findAll({
+            include: [Model.Classes, Model.Schools],
+            // limit: 5
+        })
+        res.json(data);
+    }
+    catch(err){
+        console.log(err);
+    }   
+})
+
 
 
 
